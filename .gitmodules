@@ -10,4 +10,4 @@
 [submodule "軟體包管理器 Package managers"]
 	path = 軟體包管理器 Package managers
 	url = https://gitlab.com/libre-knowledge/package-managers.git
-	ignore = true
+	ignore = dirty
