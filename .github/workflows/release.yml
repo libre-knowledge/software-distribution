@@ -30,7 +30,8 @@ jobs:
           #fetch-tags: true
 
           # Also recursively fetch submodules
-          submodules: true
+          # WORKAROUND: Adding this option triggers actions/checkout#1959
+          #submodules: true
 
       - name: >-
           WORKAROUND: Fetch tags that points to the revisions
@@ -42,6 +43,13 @@ jobs:
             --force \
             --depth=100 \
             --no-recurse-submodules
+
+      - name: >-
+          WORKAROUND: Checkout submodules recursively(actions/checkout#1959)
+        run: |-
+          git submodule \
+            --init \
+            --recursive
 
       - name: Determine the project identifier
         run: printf "project_id=${GITHUB_REPOSITORY##*/}\\n" >> $GITHUB_ENV
