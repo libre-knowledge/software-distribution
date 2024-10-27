@@ -47,7 +47,7 @@ jobs:
       - name: >-
           WORKAROUND: Checkout submodules recursively(actions/checkout#1959)
         run: |-
-          git submodule \
+          git submodule update \
             --init \
             --recursive
 
